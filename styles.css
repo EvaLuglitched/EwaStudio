@@ -1,0 +1,815 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    background-image: url('images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Navigation Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: black;
+}
+
+.logo {
+    font-family: 'UnifrakturMaguntia', cursive;
+    font-size: 2.5rem;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Directory Styles */
+.directory {
+    position: fixed;
+    left: 5%;
+    top: 19rem;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 20%;
+    z-index: 10;
+}
+
+.directory a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.directory-title {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.directory a:hover {
+    transform: translateX(10px);
+}
+
+/* Gallery Grid Styles */
+.gallery {
+    padding: 2rem 0;
+    margin-top: 2rem;
+    margin-left: 17%;
+    width: 83%;
+}
+
+.gallery-grid {
+    columns: 3;
+    column-gap: 1rem;
+    max-width: 1600px;
+    margin-right: 5%;
+}
+
+/* Project Card Styles */
+.project-card {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+}
+
+.project-card a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.project-image video,
+.project-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-info {
+    padding: 1rem;
+}
+
+.project-info h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.project-info p {
+    margin: 0;
+    font-size: 0.8rem;
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+/* Project Page Styles */
+.project-page {
+    padding: 2rem 0;
+    margin-top: 2rem;
+    margin-left: 17%;
+    width: 83%;
+    color: white;
+}
+
+.project-content {
+    margin-right: 5%;
+}
+
+.project-header {
+    margin-bottom: 4rem;
+}
+
+.project-header h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+/* Project Introduction Styles */
+.project-intro {
+    padding: 4rem 0 2rem 0;
+    color: white;
+}
+
+.intro-content {
+    margin-left: 17%;
+    width: 83%;
+    display: flex;
+    gap: 8rem;
+    margin-right: 5%;
+}
+
+.intro-left {
+    flex: 1;
+    max-width: 600px;
+}
+
+.intro-left p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.intro-right {
+    width: 300px;
+    padding-left: 2rem;
+}
+
+.intro-left h2,
+.intro-right h2 {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+/* Project Details and Content */
+.project-details {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.detail-label {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.5rem;
+}
+
+.detail-value {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.project-description {
+    margin-bottom: 4rem;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+/* Presentation Images */
+.presentation-images {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.presentation-images img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+
+/* Content Layout Components */
+.feature-text {
+    text-align: center;
+    max-width: 800px;
+    margin: 2rem auto;
+    color: white;
+    padding: 0 2rem;
+}
+
+.feature-text p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.content-row {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem auto;
+    max-width: 1800px;
+    padding: 0 2rem;
+}
+
+.image-side {
+    flex: 1;
+    min-width: 0;
+}
+
+.text-side {
+    font-size: 0.9rem;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    line-height: 1.6;
+}
+
+/* Background Page Styles */
+.birdhouse-page {
+    background-image: url('images/birdhouse/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.adaseco-page {
+    background-image: url('images/adaseco/adaseco-background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.survivalguide-page {
+    background-image: url('images/book/background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.inflatablechair-page {
+    background-color: black;
+    background-image: none;
+    min-height: 100vh;
+}
+
+.deskorganizer-page {
+    background-color: black;
+    background-image: none;
+    min-height: 100vh;
+}
+
+.ouijaboard-page {
+    background-color: black;
+    background-image: none;
+    min-height: 100vh;
+}
+
+.barstool-page {
+    background-color: black;
+    background-image: none;
+    min-height: 100vh;
+}
+
+.canwemeet-page {
+    background-image: url('images/canwemeet/background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+
+/* Image Row Styles */
+.image-row {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem auto;
+    max-width: 1800px;
+    padding: 0;
+}
+
+.image-row .image-side {
+    flex: 1;
+    min-width: 0;
+    padding: 0;
+}
+
+.image-row .image-side img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+
+/* Carousel Base Styles */
+.carousel {
+    position: relative;
+    width: 80%;
+    margin: 4rem auto;
+    padding: 0 4rem;
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.carousel-track {
+    display: flex;
+    align-items: center;
+    transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+    width: 100%;
+    flex-shrink: 0;
+    transition: all 0.5s ease;
+    opacity: 0.4;
+    transform: scale(0.8);
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Carousel Button Styles */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-button::before,
+.carousel-button::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: white;
+}
+
+.carousel-button.next::before {
+    transform: rotate(45deg);
+    transform-origin: right center;
+    right: 35px;
+}
+
+.carousel-button.next::after {
+    transform: rotate(-45deg);
+    transform-origin: right center;
+    right: 35px;
+}
+
+.carousel-button.prev::before {
+    transform: rotate(-45deg);
+    transform-origin: left center;
+    left: 35px;
+}
+
+.carousel-button.prev::after {
+    transform: rotate(45deg);
+    transform-origin: left center;
+    left: 35px;
+}
+
+.carousel-button.prev {
+    left: 20px;
+}
+
+.carousel-button.next {
+    right: 20px;
+}
+
+.carousel-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Interview Section Styles */
+.interview-section {
+    margin: 4rem 0;
+    color: white;
+    width: 100%;
+}
+
+.section-title {
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 2rem 0;
+    margin-left: 17%;
+    color: white;
+}
+
+.interview-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 4px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Interview Section Elements */
+.interview-section .user-image {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.interview-section .user-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.interview-section .user-info {
+    flex: 1;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.interview-section .info-detail {
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.interview-section .user-info h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.interview-section .feedback-section {
+    margin-bottom: 1rem;
+}
+
+.interview-section .feedback-section h4 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.interview-section .feedback-section p {
+    opacity: 0.8;
+}
+
+/* Survival Guide Page Specific Styles */
+.survivalguide-page .project-intro {
+    padding: 4rem 0 4rem 0;
+}
+
+.survivalguide-page .intro-content {
+    margin-left: 17%;
+    width: 83%;
+    flex-direction: column;
+    gap: 3rem;
+    margin-right: 5%;
+}
+
+.survivalguide-page .intro-left {
+    max-width: 600px;
+}
+
+.survivalguide-page .intro-right {
+    margin-left: 0;
+    width: 300px;
+}
+
+.survivalguide-page .carousel {
+    width: 50%;
+}
+
+.survivalguide-page .carousel-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.survivalguide-page .carousel-slide img {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1400px) {
+    .gallery-grid {
+        columns: 2;
+    }
+    .gallery {
+        margin-left: 25%;
+        width: 70%;
+    }
+    .category-gallery {
+        margin-left: 25%;
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-grid,
+    .category-grid {
+        columns: 1;
+    }
+    .gallery,
+    .category-gallery {
+        margin-left: 30%;
+        width: 65%;
+    }
+    .directory a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery,
+    .category-gallery {
+        margin-left: 35%;
+        width: 60%;
+    }
+}
+
+/* Category Grid Styles */
+.category-gallery {
+    padding: 2rem 0;
+    margin-top: 2rem;
+    margin-left: 17%;
+    width: 83%;
+}
+
+.category-grid {
+    columns: 2;
+    column-gap: 1rem;
+    max-width: 1600px;
+    margin-right: 5%;
+}
+
+.category-grid .project-card {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    display: inline-block;
+    width: 100%;
+}
+
+.category-grid .project-card a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.category-grid .project-image {
+    position: relative;
+    width: 100%;
+}
+
+.category-grid .project-image img,
+.category-grid .project-image video {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.category-grid .project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.category-grid .project-info {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+}
+
+.category-grid .project-info h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.category-grid .project-info p {
+    margin: 0;
+    font-size: 0.8rem;
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+/* Survival Guide Detail Grid */
+.survivalguide-page .detail-grid {
+    display: flex;
+    gap: 2rem;
+}
+
+.survivalguide-page .detail-labels,
+.survivalguide-page .detail-values {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Project Images */
+.project-images {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.project-images img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Interview Section Additional Styles */
+.interview-section .carousel {
+    width: 80%;
+    margin: 2rem auto;
+    overflow: hidden;
+}
+
+.interview-section .carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interview-section .carousel-slide {
+    min-width: 100%;
+    opacity: 0.4;
+    transform: scale(0.8);
+    transition: all 0.5s ease;
+}
+
+.interview-section .carousel-slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+.spacer {
+    height: 8rem; /* Adjust height as needed */
+    width: 100%;
+}
+
+.video-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.presentation-images video {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    max-width: 1800px; /* Matches your image max-width */
+}
+
+/* Can We Meet Page Specific Carousel Styles */
+.canwemeet-page .carousel {
+    width: 50%; /* Reduced from 80% */
+    margin: 4rem auto;
+}
+
+.canwemeet-page .carousel-container {
+    max-width: 1000px; /* Add max-width constraint */
+    margin: 0 auto;
+}
+
+.canwemeet-page .carousel-slide img {
+    max-width: 800px; /* Control maximum image size */
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* Three equal columns layout */
+.content-row.three-columns {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem auto;
+    max-width: 1800px;
+}
+
+.content-row.three-columns .image-side,
+.content-row.three-columns .text-side {
+    flex: 1;  /* Makes all columns equal width */
+}
+
+.content-row.three-columns .text-side.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.8rem;  /* Double the size - adjusted from 1.2rem to 1.8rem */
+    line-height: 1.6;
+    padding: 0 1rem;
+}
+
+/* Add this new class for larger feature text */
+.feature-text-large {
+    text-align: center;
+    max-width: 800px;
+    margin: 2rem auto;
+    color: white;
+    padding: 0 2rem;
+}
+
+.feature-text-large p {
+    font-size: 1.8rem; /* Same size as your column text */
+    line-height: 1.6;
+}
+
+/* Barstool specific carousel styles */
+.barstool-carousel {
+    width: 60%; /* Adjust this percentage to make it smaller */
+    margin: 4rem auto;
+}
+
+.barstool-carousel .carousel-container {
+    max-width: 1200px; /* Control maximum width */
+    margin: 0 auto;
+}
+
+.barstool-carousel .carousel-slide img {
+    max-width: 1000px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
