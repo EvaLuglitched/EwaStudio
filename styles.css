@@ -813,3 +813,14 @@ body {
     height: auto;
     margin: 0 auto;
 }
+
+.logo a {
+    text-decoration: none;
+    color: inherit; /* This keeps the original text color */
+}
+
+.directory-title {
+    text-decoration: none;
+    color: inherit;
+    /* Keep any other styling you had for directory-title */
+}
