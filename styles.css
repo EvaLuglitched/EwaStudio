@@ -8,7 +8,7 @@
 body {
     font-family: 'Work Sans', sans-serif;
     background-image: url('images/background.png');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-attachment: fixed;
     min-height: 100vh;
@@ -206,7 +206,7 @@ body {
 }
 
 .intro-left p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.8;
 }
 
@@ -217,7 +217,7 @@ body {
 
 .intro-left h2,
 .intro-right h2 {
-    font-size: 1rem;
+    font-size: 2rem;
     margin-bottom: 2rem;
     font-weight: 400;
 }
@@ -246,6 +246,20 @@ body {
     line-height: 1.6;
 }
 
+.image-title {
+    width: 100%;
+    color: white;
+    padding: 1rem 0;
+}
+
+.image-title h2 {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 2rem;  /* Made larger to match your intro h2 size */
+    font-weight: 400;
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
 /* Presentation Images */
 .presentation-images {
     display: flex;
@@ -265,16 +279,16 @@ body {
 
 /* Content Layout Components */
 .feature-text {
-    text-align: center;
-    max-width: 800px;
-    margin: 2rem auto;
+    width: 100%;           /* Changed from max-width: 800px */
     color: white;
-    padding: 0 2rem;
+    padding: 1rem 0;       /* Changed padding */
+    text-align: left;      /* Changed from center */
 }
 
 .feature-text p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.8;
+    margin-bottom: 2rem;   /* Added to match other text spacing */
 }
 
 .content-row {
