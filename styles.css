@@ -281,13 +281,15 @@ body {
 .feature-text {
     width: 100%;           /* Changed from max-width: 800px */
     color: white;
-    padding: 1rem 0;       /* Changed padding */
+    padding: 3rem 0;       /* Changed padding */
     text-align: left;      /* Changed from center */
 }
 
 .feature-text p {
     font-size: 1.1rem;
     line-height: 1.8;
+    margin-left: 10rem;
+    margin-right: 10rem;
     margin-bottom: 2rem;   /* Added to match other text spacing */
 }
 
@@ -752,7 +754,7 @@ body {
 
 
 .spacer {
-    height: 8rem; /* Adjust height as needed */
+    height: 3rem; /* Adjust height as needed */
     width: 100%;
 }
 
