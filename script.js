@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Carousel functionality
     function initializeCarousel(carousel) {
         const track = carousel.querySelector('.carousel-track');
         const slides = Array.from(track.children);
@@ -47,4 +48,15 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.carousel').forEach(carousel => {
         initializeCarousel(carousel);
     });
+    
+    // NEW CODE: Directory mobile toggle
+    const directoryToggle = document.querySelector('.directory-mobile-toggle');
+    const directory = document.querySelector('.directory');
+    
+    if (directoryToggle && directory) {
+        directoryToggle.addEventListener('click', function() {
+            directory.classList.toggle('active');
+            directoryToggle.classList.toggle('active');
+        });
+    }
 });

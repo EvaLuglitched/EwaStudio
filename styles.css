@@ -605,39 +605,281 @@ body {
     .gallery-grid {
         columns: 2;
     }
-    .gallery {
+    .gallery, .project-page, .category-gallery, .project-title, .project-intro {
         margin-left: 25%;
         width: 70%;
     }
-    .category-gallery {
-        margin-left: 25%;
-        width: 70%;
+    .intro-content {
+        gap: 4rem;
+    }
+    .directory {
+        width: 22%;
+    }
+    .logo {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .intro-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .intro-right {
+        padding-left: 0;
+        width: 100%;
+    }
+    .carousel {
+        width: 90%;
+        padding: 0 2rem;
+    }
+    .carousel-button {
+        width: 60px;
+        height: 60px;
+    }
+    .feature-text p {
+        margin-left: 2rem;
+        margin-right: 2rem;
     }
 }
 
 @media (max-width: 768px) {
+    body {
+        background-size: cover;
+    }
+    .navbar {
+        padding: 1rem 5%;
+    }
+    .logo {
+        font-size: 2rem;
+    }
     .gallery-grid,
     .category-grid {
         columns: 1;
     }
-    .gallery,
-    .category-gallery {
-        margin-left: 30%;
-        width: 65%;
+    .gallery, .project-page, .category-gallery, .project-title, .project-intro, .intro-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 0 2rem;
+    }
+    .project-title h1 {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+    }
+    .intro-left h2, .intro-right h2, .image-title h2 {
+        font-size: 1.5rem;
+    }
+    .directory {
+        position: static;
+        width: 100%;
+        padding: 1rem 2rem;
+        margin-top: 0.5rem;
+        transform: none;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        background: rgba(0,0,0,0.7);
     }
     .directory a {
-        font-size: 1rem;
+        margin-right: 1rem;
+    }
+    .directory-title {
+        margin-bottom: 0;
+        margin-right: 1rem;
+    }
+    .project-content {
+        margin-right: 0;
+    }
+    .image-row {
+        flex-direction: column;
+    }
+    .content-row {
+        flex-direction: column;
+    }
+    .content-row.three-columns {
+        flex-direction: column;
     }
 }
 
-@media (max-width: 480px) {
-    .gallery,
-    .category-gallery {
-        margin-left: 35%;
-        width: 60%;
+@media (max-width: 576px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 3%;
+    }
+    .nav-links {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+    .logo {
+        font-size: 1.8rem;
+    }
+    .directory {
+        flex-direction: column;
+        align-items: center;
+    }
+    .directory a {
+        font-size: 0.9rem;
+        text-align: center;
+        margin-right: 0;
+    }
+    .directory-title {
+        margin-right: 0;
+    }
+    .project-title h1 {
+        font-size: 1.5rem;
+    }
+    .intro-left p, .feature-text p {
+        font-size: 0.9rem;
+    }
+    .carousel {
+        width: 100%;
+        padding: 0 1rem;
+    }
+    .carousel-button {
+        width: 40px;
+        height: 40px;
+    }
+    .interview-container {
+        flex-direction: column;
+        align-items: center;
     }
 }
 
+/* Mobile Directory Toggle */
+
+/* Add mobile directory toggle using pseudo-element */
+@media (max-width: 768px) {
+    .directory::before {
+        content: "Menu";
+        display: block;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 0.8rem 1.5rem;
+        text-align: center;
+        cursor: pointer;
+        position: fixed;
+        top: 5rem;
+        left: 0;
+        z-index: 20;
+        border-radius: 0 4px 4px 0;
+        font-weight: 500;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .directory.active::before {
+        left: 70%;
+    }
+
+    /* Rest of the mobile directory CSS as provided earlier */
+}
+
+.directory-mobile-toggle {
+    display: none;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    position: fixed;
+    top: 5rem;
+    left: 0;
+    z-index: 20;
+    border-radius: 0 4px 4px 0;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.directory-mobile-toggle.active {
+    left: 70%; /* Adjust based on your directory width */
+}
+
+@media (max-width: 768px) {
+    .directory-mobile-toggle {
+        display: block;
+    }
+    
+    .directory {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        height: 100vh;
+        width: 70%;
+        background: rgba(0, 0, 0, 0.9);
+        padding-top: 5rem;
+        transition: left 0.3s ease;
+        overflow-y: auto;
+        z-index: 15;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    
+    .directory.active {
+        left: 0;
+    }
+    
+    .directory a {
+        margin: 0.5rem 2rem;
+        font-size: 1.1rem;
+    }
+    
+    .directory-title {
+        margin: 1rem 2rem;
+        font-size: 1.3rem;
+    }
+}
+
+/* Background fix for mobile */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+    
+    .birdhouse-page, .adaseco-page, .survivalguide-page, .canwemeet-page {
+        background-attachment: scroll;
+    }
+}
+
+html {
+    font-size: 16px;
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+.project-image {
+    overflow: hidden;
+}
+
+.logo {
+    font-size: clamp(2rem, 3vw, 3rem);
+}
+
+.project-info h3 {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+
+.project-info p {
+    font-size: clamp(0.8rem, 1vw, 0.9rem);
+}
+
+.intro-left p {
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+}
+
+.intro-left h2, .intro-right h2 {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+.feature-text p {
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+}
 /* Category Grid Styles */
 .category-gallery {
     padding: 2rem 0;
