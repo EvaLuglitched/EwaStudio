@@ -1102,3 +1102,19 @@ img, video {
     color: inherit;
     /* Keep any other styling you had for directory-title */
 }
+
+/* Text hover effect - applies the neon mint green color */
+.nav-links a:hover,
+.directory a:hover,
+.project-info h3:hover,
+.project-info p:hover,
+.logo a:hover {
+    color: #96FF00 !important; /* Neon mint green matching your examples */
+    transition: color 0.3s ease;
+}
+
+/* Ensure the hover effect works properly on the project cards */
+.project-card:hover .project-info h3,
+.project-card:hover .project-info p {
+    color: #96FF00 !important;
+}
