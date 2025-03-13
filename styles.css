@@ -94,7 +94,6 @@ body {
 .project-card {
     break-inside: avoid;
     margin-bottom: 1rem;
-    margin-bottom: 3rem;
     background: rgba(0, 0, 0, 0.7);
     color: white;
     overflow: hidden;
