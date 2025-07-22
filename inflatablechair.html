@@ -12,24 +12,31 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <a href="index.html">Eva Lu Studio</a>
+                <a href="index.html">EVA STUDIO.</a>
             </div>
             <div class="nav-links">
-                <a href="index.html">Work</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+                <!-- Move the floating menu container here -->
+                <div class="floating-menu-container">
+                    <button class="floating-menu-trigger">
+                        <div class="hamburger-container">
+                            <span class="hamburger-line"></span>
+                            <span class="hamburger-line"></span>
+                            <span class="hamburger-line"></span>
+                        </div>
+                        <span class="menu-text">MENU</span>
+                    </button>
+                    <div class="floating-menu-dropdown">
+                        <a href="index.html">→ Browse All</a>
+                        <a href="category/toy-game.html">→ Toy & Game Design</a>
+                        <a href="category/furniture.html">→ Furniture Design</a>
+                        <a href="category/product.html">→ Product Design</a>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
-
-    <div class="directory">
-        <a href="index.html" class="directory-title">Browse All</a>
-        <a href="category/toy-game.html">→ Toy & Game Design</a>
-        <a href="category/furniture.html">→ Furniture Design</a>
-        <a href="category/product.html">→ Product Design</a>
-    
-        
-    </div>
 
     <section class="project-title">
         <h1>GRAND LIGHTLESS INFLATABLE CHAIR</h1>
@@ -61,260 +68,315 @@
     
     <main class="project-page">
         <div class="project-content">
+            <div class="spacer"></div>
             <div class="presentation-images">
                 <img src="images/inflatablechair/1.png" alt="inflatable chair Presentation 1">
+            </div>
             
-                <div class="feature-text">
-                    <p>Chair seats are made of inflatable material to provide a plush experience on different occasions. Adaptable angles to fit your body type and sitting position.</p>
-                </div>
+            <div class="spacer"></div>
+            
+            <div class="feature-text">
+                <p>Chair seats are made of inflatable material to provide a plush experience on different occasions. Adaptable angles to fit your body type and sitting position.</p>
+            </div>
 
-                <!-- Image Carousel Section -->
+            <div class="spacer"></div>
+
+            <!-- Image Carousel Section -->
+            <div class="carousel">
+                <button class="carousel-button prev"></button>
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <div class="carousel-slide active">
+                            <img src="images/inflatablechair/3a.png" alt="inflatable chair Presentation 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/inflatablechair/2a.png" alt="inflatable chair Presentation 3">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/inflatablechair/1a.png" alt="inflatable chair Presentation 4">
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-button next"></button>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="content-row">
+                <div class="text-side">
+                    <p>This is the chair I was studying from. It is a chair widely used in our schools studio, yet people are not satisfied. Complains from the students and faculty members let me thought about doing an user interview to further study why people are not satisfied with this chair and what qualities people are looking for in a chair.</p>
+                </div>
+                <div class="image-side">
+                    <img src="images/inflatablechair/2.png" alt="Description">
+                </div>
+            </div>
+
+            <div class="spacer"></div>
+            <div class="spacer"></div>
+            <div class="spacer"></div>
+
+            <section class="image-title">
+                <h2>USER INTERVIEW</h2>
+            </section>
+
+            <div class="spacer"></div>
+
+            <!-- Interview Carousel Section -->
+            <div class="interview-section">
                 <div class="carousel">
                     <button class="carousel-button prev"></button>
                     <div class="carousel-container">
                         <div class="carousel-track">
+                            <!-- First Interview -->
                             <div class="carousel-slide active">
-                                <img src="images/inflatablechair/3a.png" alt="inflatable chair Presentation 2">
+                                <div class="interview-container">
+                                    <div class="user-image">
+                                        <img src="images/inflatablechair/user-avatar.jpeg" alt="Anonymous Student">
+                                    </div>
+                                    <div class="user-info">
+                                        <h3>ANONYMOUS ILLUSTRATION STUDENT</h3>
+                                        <div class="info-detail">
+                                            <p>Age: 21</p>
+                                            <p>Primary Use of Product: 6hrs Drawing Studios, Gaming</p>
+                                        </div>
+                                        <div class="feedback-section">
+                                            <h4>LOOK</h4>
+                                            <p>" We not only have this in studios but in dorms as well. Not everyone needs a bright orange chair in their room, especially since all the rest of the pieces of furniture are wooden. Feels like a traffic cone squeezing my tight little ass."</p>
+                                        </div>
+                                        <div class="feedback-section">
+                                            <h4>COMFORT</h4>
+                                            <p>"Our studio chairs are Insanely uncomfortable, they don't recline. We are Artists and we need to sit in those chairs for 8-hour studios and my back hurts a lot. I am the height of an average adult man but I'm still too tall for this chair."</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+            
+                            <!-- Second Interview -->
                             <div class="carousel-slide">
-                                <img src="images/inflatablechair/2a.png" alt="inflatable chair Presentation 3">
+                                <div class="interview-container">
+                                    <div class="user-image">
+                                        <img src="images/inflatablechair/user-avatar.jpeg" alt="Anonymous Student">
+                                    </div>
+                                    <div class="user-info">
+                                        <h3>ANONYMOUS ILLUSTRATION STUDENT 2</h3>
+                                        <div class="info-detail">
+                                            <p>Age: 20</p>
+                                            <p>Primary Use of Product: 6hrs Drawing Studios, Painting</p>
+                                        </div>
+                                        <div class="feedback-section">
+                                            <h4>LOOK</h4>
+                                            <p>" It is kind of a weird choice of color, definitely not for everyone. Neutral colors such as Black or gray would be nicer, wood tone would be way nicer."</p>
+                                        </div>
+                                        <div class="feedback-section">
+                                            <h4>COMFORT</h4>
+                                            <p>" I don't like the triangular legs, I always hit my feet on them. I also don't like the shape of the back, my spine is against the hard plastic, hunched, arms compressed to my body</p>
+                                        </div>
+                                        <div class="feedback-section">
+                                            <h4>STORAGE</h4>
+                                            <p>"This chair is average weight, not too heavy not too light but hard to carry to other rooms when we have large-scale meetings."</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+            
+                            <!-- Third Interview -->
                             <div class="carousel-slide">
-                                <img src="images/inflatablechair/1a.png" alt="inflatable chair Presentation 4">
+                                <div class="interview-container">
+                                    <div class="user-image">
+                                        <img src="images/inflatablechair/user-avatar.jpeg" alt="Anonymous Student">
+                                    </div>
+                                    <div class="user-info">
+                                        <h3>ANONYMOUS INDUSTRIAL DESIGN STUDENT</h3>
+                                        <div class="info-detail">
+                                            <p>Age: 20</p>
+                                            <p>Primary Use of Product: Model Making</p>
+                                        </div>
+                                        <div class="feedback-section">
+                                            <h4>LOOK</h4>
+                                            <p>"Our chairs look very old-fashioned, like the ones in high school."</p>
+                                        </div>
+                                        <div class="feedback-section">
+                                            <h4>COMFORT</h4>
+                                            <p>"The front of the Chair is lifting my legs up in an uncomfortable way that I can't put any weight on my feet. I am having a difficult time sitting in those chairs for class. "</p>
+                                        </div>
+                                        <div class="feedback-section">
+                                            <h4>ADJUSTIMENT</h4>
+                                            <p>" Too low for the desks and we can't adjust the height. I can't get out of my desk smoothly and I stand up often."</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <!-- Fourth Interview -->
+                            <div class="carousel-slide">
+                                <div class="interview-container">
+                                    <div class="user-image">
+                                        <img src="images/inflatablechair/user-avatar.jpeg" alt="Anonymous Student">
+                                    </div>
+                                    <div class="user-info">
+                                        <h3>ANONYMOUS METAL SMITHING STUDENT</h3>
+                                        <div class="info-detail">
+                                            <p>Age: 20</p>
+                                            <p>Primary Use of Product: Metalwork, Graphic Design</p>
+                                        </div>
+                                        <div class="feedback-section">
+                                            <h4>LOOK</h4>
+                                            <p>" They look very plain and don't have any personality for an art school. The color makes them feel like high school or middle furniture for kids. "</p>
+                                        </div>
+                                        <div class="feedback-section">
+                                            <h4>COMFORT</h4>
+                                            <p>" The seat is flat and hard plastic. Not good for working or relaxing"</p>
+                                        </div>
+                                        <div class="feedback-section">
+                                            <h4>STORAGE</h4>
+                                            <p>"Easy to store but awkward to carry around. Tedious to store them.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <button class="carousel-button next"></button>
                 </div>
+            </div>
 
-                <div class="content-row">
-                    <div class="text-side">
-                        <p>This is the chair I was studying from. It is a chair widely used in our schools studio, yet people are not satisfied. Complains from the students and faculty members let me thought about doing an user interview to further study why people are not satisfied with this chair and what qualities people are looking for in a chair.</p>
-                    </div>
-                    <div class="image-side">
-                        <img src="images/inflatablechair/2.png" alt="Description">
-                    </div>
+            <div class="spacer"></div>
+            <div class="spacer"></div>
+            <div class="spacer"></div>
+
+            <section class="image-title">
+                <h2>RESEARCH SUMMARY</h2>
+            </section>
+            
+            <div class="spacer"></div>
+            
+            <div class="feature-text">
+                <p>We see no deliberate thinking of design in the products we purchased as a design school. There is a lack of consideration for our students' health in the long term since the chairs we purchased are not convenient or comfortable.</p>
+            </div>
+
+            <div class="spacer"></div>
+            <div class="spacer"></div>
+            <div class="spacer"></div>
+
+            <section class="image-title">
+                <h2>MARKET ANALYSIS</h2>
+            </section>
+
+            <div class="spacer"></div>
+
+            <div class="image-row">
+                <div class="image-side">
+                    <img src="images/inflatablechair/4.png" alt="Description">
                 </div>
-
-                <section class="image-title">
-                    <h2>USER INTERVIEW</h2>
-                </section>
-
-                <!-- Interview Carousel Section -->
-                <div class="interview-section">
-                    <div class="carousel">
-                        <button class="carousel-button prev"></button>
-                        <div class="carousel-container">
-                            <div class="carousel-track">
-                                <!-- First Interview -->
-                                <div class="carousel-slide active">
-                                    <div class="interview-container">
-                                        <div class="user-image">
-                                            <img src="images/inflatablechair/user-avatar.jpeg" alt="Anonymous Student">
-                                        </div>
-                                        <div class="user-info">
-                                            <h3>ANONYMOUS ILLUSTRATION STUDENT</h3>
-                                            <div class="info-detail">
-                                                <p>Age: 21</p>
-                                                <p>Primary Use of Product: 6hrs Drawing Studios, Gaming</p>
-                                            </div>
-                                            <div class="feedback-section">
-                                                <h4>LOOK</h4>
-                                                <p>" We not only have this in studios but in dorms as well. Not everyone needs a bright orange chair in their room, especially since all the rest of the pieces of furniture are wooden. Feels like a traffic cone squeezing my tight little ass."</p>
-                                            </div>
-                                            <div class="feedback-section">
-                                                <h4>COMFORT</h4>
-                                                <p>"Our studio chairs are Insanely uncomfortable, they don't recline. We are Artists and we need to sit in those chairs for 8-hour studios and my back hurts a lot. I am the height of an average adult man but I'm still too tall for this chair."</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                
-                                <!-- Second Interview -->
-                                <div class="carousel-slide">
-                                    <div class="interview-container">
-                                        <div class="user-image">
-                                            <img src="images/inflatablechair/user-avatar.jpeg" alt="Anonymous Student">
-                                        </div>
-                                        <div class="user-info">
-                                            <h3>ANONYMOUS ILLUSTRATION STUDENT 2</h3>
-                                            <div class="info-detail">
-                                                <p>Age: 20</p>
-                                                <p>Primary Use of Product: 6hrs Drawing Studios, Painting</p>
-                                            </div>
-                                            <div class="feedback-section">
-                                                <h4>LOOK</h4>
-                                                <p>" It is kind of a weird choice of color, definitely not for everyone. Neutral colors such as Black or gray would be nicer, wood tone would be way nicer."</p>
-                                            </div>
-                                            <div class="feedback-section">
-                                                <h4>COMFORT</h4>
-                                                <p>" I don't like the triangular legs, I always hit my feet on them. I also don't like the shape of the back, my spine is against the hard plastic, hunched, arms compressed to my body</p>
-                                            </div>
-                                            <div class="feedback-section">
-                                                <h4>STORAGE</h4>
-                                                <p>"This chair is average weight, not too heavy not too light but hard to carry to other rooms when we have large-scale meetings."</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                
-                                <!-- Third Interview -->
-                                <div class="carousel-slide">
-                                    <div class="interview-container">
-                                        <div class="user-image">
-                                            <img src="images/inflatablechair/user-avatar.jpeg" alt="Anonymous Student">
-                                        </div>
-                                        <div class="user-info">
-                                            <h3>ANONYMOUS INDUSTRIAL DESIGN STUDENT</h3>
-                                            <div class="info-detail">
-                                                <p>Age: 20</p>
-                                                <p>Primary Use of Product: Model Making</p>
-                                            </div>
-                                            <div class="feedback-section">
-                                                <h4>LOOK</h4>
-                                                <p>"Our chairs look very old-fashioned, like the ones in high school."</p>
-                                            </div>
-                                            <div class="feedback-section">
-                                                <h4>COMFORT</h4>
-                                                <p>"The front of the Chair is lifting my legs up in an uncomfortable way that I can't put any weight on my feet. I am having a difficult time sitting in those chairs for class. "</p>
-                                            </div>
-                                            <div class="feedback-section">
-                                                <h4>ADJUSTIMENT</h4>
-                                                <p>" Too low for the desks and we can't adjust the height. I can't get out of my desk smoothly and I stand up often."</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                
-                                <!-- Fourth Interview -->
-                                <div class="carousel-slide">
-                                    <div class="interview-container">
-                                        <div class="user-image">
-                                            <img src="images/inflatablechair/user-avatar.jpeg" alt="Anonymous Student">
-                                        </div>
-                                        <div class="user-info">
-                                            <h3>ANONYMOUS METAL SMITHING STUDENT</h3>
-                                            <div class="info-detail">
-                                                <p>Age: 20</p>
-                                                <p>Primary Use of Product: Metalwork, Graphic Design</p>
-                                            </div>
-                                            <div class="feedback-section">
-                                                <h4>LOOK</h4>
-                                                <p>" They look very plain and don't have any personality for an art school. The color makes them feel like high school or middle furniture for kids. "</p>
-                                            </div>
-                                            <div class="feedback-section">
-                                                <h4>COMFORT</h4>
-                                                <p>" The seat is flat and hard plastic. Not good for working or relaxing"</p>
-                                            </div>
-                                            <div class="feedback-section">
-                                                <h4>STORAGE</h4>
-                                                <p>"Easy to store but awkward to carry around. Tedious to store them.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="carousel-button next"></button>
-                    </div>
+                <div class="image-side">
+                    <img src="images/inflatablechair/3.png" alt="Description">
                 </div>
+            </div>
 
-                <section class="image-title">
-                    <h2>RESEARCH SUMMARY</h2>
-                </section>
-                
-                <div class="feature-text">
-                    <p>We see no deliberate thinking of design in the products we purchased as a design school. There is a lack of consideration for our students' health in the long term since the chairs we purchased are not convenient or comfortable.</p>
+            <div class="content-row">
+                <div class="image-side">
+                    <img src="images/inflatablechair/5.png" alt="Description">
                 </div>
-
-                <section class="image-title">
-                    <h2>MARKET ANALYSIS</h2>
-                </section>
-
-                <div class="image-row">
-                    <div class="image-side">
-                        <img src="images/inflatablechair/4.png" alt="Description">
-                    </div>
-                    <div class="image-side">
-                        <img src="images/inflatablechair/3.png" alt="Description">
-                    </div>
+                <div class="text-side">
+                    <p>According to the latest study, the global Ergonomic Office Chair market size was valued at USD 1.6 billion in 2023. With growing demand in the downstream market, the Ergonomic Office Chair is forecast to a readjusted size of USD 1.9 billion by 2030 with a CAGR of 5.3% during the review period. A great demand for office furniture is gradually growing due to the fact of increasing development of corporate hubs in the States, especially after the pandemic.
+                        Possible market and target:
+                        52 core campus facilities, 2620 Student + 200 full time faculties + 400 part-time faculties = ~3000 office chairs needed to be replaced</p>
                 </div>
+            </div>
+            
+            <div class="spacer"></div>
+            <div class="spacer"></div>
+            <div class="spacer"></div>
 
-                <div class="content-row">
-                    <div class="image-side">
-                        <img src="images/inflatablechair/5.png" alt="Description">
-                    </div>
-                    <div class="text-side">
-                        <p>According to the latest study, the global Ergonomic Office Chair market size was valued at USD 1.6 billion in 2023. With growing demand in the downstream market, the Ergonomic Office Chair is forecast to a readjusted size of USD 1.9 billion by 2030 with a CAGR of 5.3% during the review period. A great demand for office furniture is gradually growing due to the fact of increasing development of corporate hubs in the States, especially after the pandemic.
-                            Possible market and target:
-                            52 core campus facilities, 2620 Student + 200 full time faculties + 400 part-time faculties = ~3000 office chairs needed to be replaced</p>
-                    </div>
-                </div>
-                <div class="spacer"></div>
-
-                <section class="image-title">
-                    <h2>ERGONOMIC STUDY</h2>
-                </section>
-                
+            <section class="image-title">
+                <h2>ERGONOMIC STUDY</h2>
+            </section>
+            
+            <div class="spacer"></div>
+            
+            <div class="presentation-images">
                 <img src="images/inflatablechair/6.png" alt="Chair Presentation 5">
-                <div class="spacer"></div>
-                
-                <section class="image-title">
-                    <h2>THUMBNAIL SKETCHES</h2>
-                </section>
-                
-                <div class="image-row">
-                    <div class="image-side">
-                        <img src="images/inflatablechair/7.png" alt="Description">
-                    </div>
-                    <div class="image-side">
-                        <img src="images/inflatablechair/8.png" alt="Description">
-                    </div>
+            </div>
+            
+            <div class="spacer"></div>
+            <div class="spacer"></div>
+            <div class="spacer"></div>
+            
+            <section class="image-title">
+                <h2>THUMBNAIL SKETCHES</h2>
+            </section>
+            
+            <div class="spacer"></div>
+            
+            <div class="image-row">
+                <div class="image-side">
+                    <img src="images/inflatablechair/7.png" alt="Description">
                 </div>
-                
-                <div class="image-row">
-                    <div class="image-side">
-                        <img src="images/inflatablechair/9.png" alt="Description">
-                    </div>
-                    <div class="image-side">
-                        <img src="images/inflatablechair/10.png" alt="Description">
-                    </div>
+                <div class="image-side">
+                    <img src="images/inflatablechair/8.png" alt="Description">
                 </div>
-                <div class="spacer"></div>
-
-                <section class="image-title">
-                    <h2>EXPLODED VIEW</h2>
-                </section>
-
-                <div class="feature-text">
-                    <p>The chair consists of two inflatable cushions to provide back and neck support. Closely appresses to your body whether you are working in the studio or taking a break.</p>
+            </div>
+            
+            <div class="image-row">
+                <div class="image-side">
+                    <img src="images/inflatablechair/9.png" alt="Description">
                 </div>
+                <div class="image-side">
+                    <img src="images/inflatablechair/10.png" alt="Description">
+                </div>
+            </div>
+            
+            <div class="spacer"></div>
+            <div class="spacer"></div>
+            <div class="spacer"></div>
 
+            <section class="image-title">
+                <h2>EXPLODED VIEW</h2>
+            </section>
+
+            <div class="spacer"></div>
+
+            <div class="feature-text">
+                <p>The chair consists of two inflatable cushions to provide back and neck support. Closely appresses to your body whether you are working in the studio or taking a break.</p>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="presentation-images">
                 <img src="images/inflatablechair/12.png" alt="Chair Presentation 5">
-                <div class="spacer"></div>
+            </div>
+            
+            <div class="spacer"></div>
+            <div class="spacer"></div>
+            <div class="spacer"></div>
 
-                <section class="image-title">
-                    <h2>PRODUCT DETAILS</h2>
-                </section>
+            <section class="image-title">
+                <h2>PRODUCT DETAILS</h2>
+            </section>
 
-                <div class="content-row">
-                    <div class="text-side">
-                        <p>Unique furniture product, in line with your identity as an artist or designer. consists of trendy transparent color cushions that can be easily inflated with an electric pump. Unlike ordinary PVC, the cushions are made out of Thermoplastic Polyurethane which better supports your back due to its elastic nature. The chair can be assembled and disassembled in a few minutes, and then easily moved or stored. </p>
-                    </div>
-                    <div class="image-side">
-                        <img src="images/inflatablechair/13.png" alt="Description">
-                    </div>
+            <div class="spacer"></div>
+
+            <div class="content-row">
+                <div class="text-side">
+                    <p>Unique furniture product, in line with your identity as an artist or designer. consists of trendy transparent color cushions that can be easily inflated with an electric pump. Unlike ordinary PVC, the cushions are made out of Thermoplastic Polyurethane which better supports your back due to its elastic nature. The chair can be assembled and disassembled in a few minutes, and then easily moved or stored. </p>
                 </div>
-
-                <div class="image-row">
-                    <div class="image-side">
-                        <img src="images/inflatablechair/14.png" alt="Description">
-                    </div>
-                    <div class="image-side">
-                        <img src="images/inflatablechair/15.png" alt="Description">
-                    </div>
+                <div class="image-side">
+                    <img src="images/inflatablechair/13.png" alt="Description">
                 </div>
+            </div>
 
+            <div class="spacer"></div>
+
+            <div class="image-row">
+                <div class="image-side">
+                    <img src="images/inflatablechair/14.png" alt="Description">
+                </div>
+                <div class="image-side">
+                    <img src="images/inflatablechair/15.png" alt="Description">
+                </div>
+            </div>
+
+            <div class="presentation-images">
                 <img src="images/inflatablechair/16.png" alt="Chair Presentation 5">
             </div>
         </div>
