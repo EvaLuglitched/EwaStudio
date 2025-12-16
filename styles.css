@@ -30,7 +30,7 @@ img, video {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 5%;
-    background-color: transparent;
+    background-color: rgb(0, 0, 0); /* 半透明黑色背景 */
     position: fixed;
     top: 0;
     left: 0;
@@ -38,11 +38,11 @@ img, video {
     z-index: 1000;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                 transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                opacity 0.3s ease;
+                opacity 0 ease;
 }
 
 .navbar.scrolled {
-    padding: 1rem 5%;
+    padding: 0.6rem 5%; /* 减小 padding，让 navbar 更窄 */
     background-color: rgba(0, 0, 0, 0);
 }
 
@@ -56,6 +56,7 @@ img, video {
     background: transparent;
 }
 
+/* Logo Styles */
 /* Logo Styles */
 .logo {
     font-family: 'Montserrat', sans-serif;
@@ -72,7 +73,8 @@ img, video {
 }
 
 .navbar.scrolled .logo {
-    font-size: clamp(2rem, 3vw, 3rem);
+    font-size: clamp(1.2rem, 2vw, 1.8rem); /* 缩小后的 logo 更小 */
+    color:white;
     letter-spacing: 0;
 }
 
@@ -83,7 +85,11 @@ img, video {
 }
 
 .project-page .navbar.scrolled .logo {
-    font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+    font-size: clamp(1rem, 1.5vw, 1.5rem); /* 项目页面滚动后的 logo 也更小 */
+}
+
+.project-page .navbar.scrolled .logo {
+    font-size: clamp(1.2rem, 2.5vw, 2.5rem);
 }
 
 .project-page .navbar,
@@ -92,7 +98,7 @@ img, video {
 }
 
 .project-page .navbar.scrolled {
-    padding: 0.8rem 5%;
+    padding: 0.5rem 5%; /* 项目页面 navbar 更窄 */
 }
 
 /* Navigation Links */
@@ -750,11 +756,22 @@ img, video {
 
 /* ===== PAGE-SPECIFIC BACKGROUND STYLES ===== */
 .birdhouse-page {
-    background-image: url('images/birdhouse/background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-color: white;
+    background-image: none;
     min-height: 100vh;
+    color: black;
+}
+
+/* Birdhouse page specific text color overrides */
+.birdhouse-page .project-title h1,
+.birdhouse-page .intro-left h2,
+.birdhouse-page .intro-left p,
+.birdhouse-page .intro-right h2,
+.birdhouse-page .detail-label,
+.birdhouse-page .detail-value,
+.birdhouse-page .image-title h2,
+.birdhouse-page .feature-text p {
+    color: black;
 }
 
 .adaseco-page {
@@ -1387,4 +1404,34 @@ img, video {
     .project-intro {
         padding: 1rem 0;
     }
+}
+/* Birdhouse page specific navbar text color changes after scroll */
+.birdhouse-page .navbar.scrolled .logo,
+.birdhouse-page .navbar.scrolled .logo a {
+    color: rgba(150, 255, 0, 0.8);
+}
+
+.birdhouse-page .navbar.scrolled .nav-links a {
+    color: rgba(150, 255, 0, 0.8);
+}
+
+.birdhouse-page .navbar.scrolled .menu-text {
+    color: rgba(150, 255, 0, 0.8);
+}
+
+.birdhouse-page .navbar.scrolled .hamburger-line {
+    background: rgba(150, 255, 0, 0.8);
+}
+
+/* Keep hover effects green on birdhouse page after scroll */
+.birdhouse-page .navbar.scrolled .nav-links a:hover {
+    color: rgba(150, 255, 0, 1);
+}
+
+.birdhouse-page .navbar.scrolled .floating-menu-trigger:hover .hamburger-line {
+    background: rgba(150, 255, 0, 1);
+}
+
+.birdhouse-page .navbar.scrolled .floating-menu-trigger:hover .menu-text {
+    color: rgba(150, 255, 0, 1);
 }
