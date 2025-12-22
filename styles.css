@@ -758,6 +758,56 @@ body:not([class*="-page"]) .gallery-grid {
     display: block;
 }
 
+/* ===== RETURN HOME BUTTON ===== */
+.return-button-container {
+    width: 100%;
+    max-width: 1800px;
+    margin: 4rem auto 2rem auto;
+    padding: 0 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.return-home-button {
+    background: rgba(172, 172, 172, 0.222);
+    border: 1px solid rgba(60, 60, 60, 0.6);
+    border-radius: 3px;
+    padding: 12px 24px;
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.return-home-button:hover {
+    background: rgba(150, 255, 0, 0.8);
+    border-color: rgba(150, 255, 0, 0.8);
+    color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Birdhouse page specific button style */
+.birdhouse-page .return-home-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: black;
+}
+
+.birdhouse-page .return-home-button:hover {
+    background: rgba(150, 255, 0, 0.8);
+    border-color: rgba(150, 255, 0, 0.8);
+    color: #000000;
+}
+
 /* ===== PAGE-SPECIFIC BACKGROUND STYLES ===== */
 .birdhouse-page {
     background-color: white;

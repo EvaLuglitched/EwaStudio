@@ -7,8 +7,18 @@ function initializeScrollEffect() {
     
     // Timing constants for different scroll behaviors
     const SCROLL_UP_DELAY = 1500;    // 往上滚动后1.5秒隐藏
-    const SCROLL_DOWN_DELAY = 1500;  // 往下滚动后3秒隐藏
+    const SCROLL_DOWN_DELAY = 1500;  // 往下滚动后1.5秒隐藏
     const HOVER_LEAVE_DELAY = 1000;  // 鼠标离开后1秒隐藏
+    
+    // Function to check if user is at bottom of page
+    function isAtBottom() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        // Consider "at bottom" if within 100px of the bottom
+        return (scrollTop + windowHeight) >= (documentHeight - 100);
+    }
     
     // Function to show navbar
     function showNavbar() {
@@ -18,6 +28,10 @@ function initializeScrollEffect() {
     
     // Function to hide navbar
     function hideNavbar() {
+        // Don't hide if at bottom of page
+        if (isAtBottom()) {
+            return;
+        }
         navbar.style.transform = 'translateY(-100%)';
         navbar.style.opacity = '0';
     }
@@ -32,10 +46,14 @@ function initializeScrollEffect() {
         const scrollingDown = scrollTop > lastScrollTop;
         const scrollingUp = scrollTop < lastScrollTop;
         
-        // Always show navbar when at top of page (first 50px)
-        if (scrollTop <= 50) {
+        // Always show navbar when at top of page (first 50px) OR at bottom
+        if (scrollTop <= 50 || isAtBottom()) {
             showNavbar();
-            navbar.classList.remove('scrolled');
+            if (scrollTop <= 50) {
+                navbar.classList.remove('scrolled');
+            } else {
+                navbar.classList.add('scrolled');
+            }
         } else {
             navbar.classList.add('scrolled');
             
@@ -46,7 +64,7 @@ function initializeScrollEffect() {
                 
                 // Set 1.5 second timer for up scroll
                 scrollTimeout = setTimeout(() => {
-                    if (scrollTop > 50) {
+                    if (scrollTop > 50 && !isAtBottom()) {
                         hideNavbar();
                     }
                 }, SCROLL_UP_DELAY);
@@ -55,9 +73,9 @@ function initializeScrollEffect() {
                 // Scrolling down - keep navbar visible for longer
                 showNavbar();
                 
-                // Set 3 second timer for down scroll
+                // Set 1.5 second timer for down scroll
                 scrollTimeout = setTimeout(() => {
-                    if (scrollTop > 50) {
+                    if (scrollTop > 50 && !isAtBottom()) {
                         hideNavbar();
                     }
                 }, SCROLL_DOWN_DELAY);
@@ -76,7 +94,7 @@ function initializeScrollEffect() {
     // Reset hide timer when mouse leaves navbar
     navbar.addEventListener('mouseleave', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollTop > 50) {
+        if (scrollTop > 50 && !isAtBottom()) {
             scrollTimeout = setTimeout(() => {
                 hideNavbar();
             }, HOVER_LEAVE_DELAY);
@@ -531,4 +549,92 @@ document.addEventListener('DOMContentLoaded', function() {
         smoothScrolling: true,
         lazyLoading: 'IntersectionObserver' in window
     });
+    
+    /* RETURN HOME BUTTON FUNCTIONALITY */
+    initializeReturnButton();
 });
+
+// Return button functionality - tracks where user came from
+function initializeReturnButton() {
+    const isHomePage = window.location.pathname.endsWith('index.html') || 
+                       window.location.pathname === '/' || 
+                       window.location.pathname.endsWith('/');
+    
+    const isCategoryPage = window.location.pathname.includes('/category/');
+    
+    // Don't add button on home page or category pages
+    if (isHomePage || isCategoryPage) {
+        return;
+    }
+    
+    // Check if we're on a project page
+    const projectPages = [
+        'scooter.html', 'adaseco.html', 'climbingshoe.html', 'survivalguide.html',
+        'birdhouse.html', 'bottle.html', 'ouijaboard.html', 'inflatablechair.html',
+        'barstool.html', 'canwemeet.html', 'skeletalchair.html', 'deskorganizer.html',
+        'about.html', 'contact.html'
+    ];
+    
+    const currentPage = window.location.pathname.split('/').pop();
+    const isProjectPage = projectPages.some(page => currentPage === page);
+    
+    if (!isProjectPage) {
+        return;
+    }
+    
+    // Create return button
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = 'return-button-container';
+    
+    const returnButton = document.createElement('a');
+    returnButton.className = 'return-home-button';
+    returnButton.href = '#';
+    
+    // Determine return destination based on referrer
+    const referrer = document.referrer;
+    let returnUrl = 'index.html';
+    let buttonText = '← RETURN HOME';
+    
+    if (referrer) {
+        const referrerPath = new URL(referrer).pathname;
+        
+        // Check if came from a category page
+        if (referrerPath.includes('/category/portfolio.html')) {
+            returnUrl = 'category/portfolio.html';
+            buttonText = '← RETURN TO PORTFOLIO';
+        } else if (referrerPath.includes('/category/toy-game.html')) {
+            returnUrl = 'category/toy-game.html';
+            buttonText = '← RETURN TO TOY & GAME DESIGN';
+        } else if (referrerPath.includes('/category/furniture.html')) {
+            returnUrl = 'category/furniture.html';
+            buttonText = '← RETURN TO FURNITURE DESIGN';
+        } else if (referrerPath.includes('/category/product.html')) {
+            returnUrl = 'category/product.html';
+            buttonText = '← RETURN TO PRODUCT DESIGN';
+        }
+        
+        // Store the return URL in sessionStorage for consistency
+        sessionStorage.setItem('returnUrl', returnUrl);
+        sessionStorage.setItem('returnText', buttonText);
+    } else {
+        // Check if we have stored return information
+        const storedUrl = sessionStorage.getItem('returnUrl');
+        const storedText = sessionStorage.getItem('returnText');
+        
+        if (storedUrl) {
+            returnUrl = storedUrl;
+            buttonText = storedText || '← RETURN HOME';
+        }
+    }
+    
+    returnButton.href = returnUrl;
+    returnButton.textContent = buttonText;
+    
+    buttonContainer.appendChild(returnButton);
+    
+    // Insert button at the end of main content
+    const main = document.querySelector('main');
+    if (main) {
+        main.appendChild(buttonContainer);
+    }
+}
