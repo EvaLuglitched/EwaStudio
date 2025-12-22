@@ -263,14 +263,13 @@ img, video {
 }
 
 .gallery-grid {
-    columns: 3;
-    column-gap: 1.5rem;
+    position: relative;
     margin: 0 auto;
+    /* Masonry layout will be handled by JavaScript */
 }
 
 body:not([class*="-page"]) .gallery-grid {
-    columns: 2;
-    column-gap: 1rem;
+    /* Masonry layout will be handled by JavaScript */
 }
 
 .category-gallery {
@@ -278,20 +277,20 @@ body:not([class*="-page"]) .gallery-grid {
 }
 
 .category-grid {
-    columns: 2;
-    column-gap: 1rem;
+    position: relative;
     margin: 0 auto;
+    /* Masonry layout will be handled by JavaScript */
 }
 
 /* ===== PROJECT CARD STYLES ===== */
 .project-card {
-    break-inside: avoid;
-    margin-bottom: 1rem;
     background: rgba(0, 0, 0, 0.7);
     color: white;
     overflow: hidden;
-    display: inline-block;
+    display: block;
     width: 100%;
+    position: absolute;
+    transition: transform 0.3s ease;
 }
 
 .project-card a {
@@ -340,10 +339,10 @@ body:not([class*="-page"]) .gallery-grid {
 
 /* Category Grid Specific Styles */
 .category-grid .project-card {
-    break-inside: avoid;
-    margin-bottom: 1rem;
-    display: inline-block;
+    display: block;
     width: 100%;
+    position: absolute;
+    transition: transform 0.3s ease;
 }
 
 .category-grid .project-card a {
@@ -1135,16 +1134,6 @@ body:not([class*="-page"]) .gallery-grid {
     .floating-menu-container {
         position: relative;
     }
-
-    body:not([class*="-page"]) .gallery-grid {
-        columns: 2;
-        column-gap: 1.5rem;
-    }
-
-    .gallery-grid {
-        columns: 3;
-        column-gap: 1.5rem;
-    }
     
     .gallery, .project-page, .category-gallery, .project-title, .project-intro {
         width: 90%;
@@ -1191,14 +1180,6 @@ body:not([class*="-page"]) .gallery-grid {
         margin-left: 2rem;
         margin-right: 2rem;
     }
-    
-    .gallery-grid {
-        columns: 2;
-    }
-
-    body:not([class*="-page"]) .gallery-grid {
-        columns: 2;
-    }
 }
 
 @media (max-width: 768px) {
@@ -1236,12 +1217,6 @@ body:not([class*="-page"]) .gallery-grid {
     
     .nav-links a:hover {
         transform: scale(1.05);
-    }
-    
-    .gallery-grid,
-    .category-grid {
-        columns: 1;
-        column-gap: 0;
     }
     
     .gallery, .project-page, .category-gallery, .project-title, .project-intro, .intro-content {

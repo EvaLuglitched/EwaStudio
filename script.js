@@ -84,9 +84,146 @@ function initializeScrollEffect() {
     });
 }
 
+// Masonry layout function for true Pinterest-style waterfall grid
+function initializeMasonryLayout() {
+    const grids = document.querySelectorAll('.gallery-grid, .category-grid');
+    
+    grids.forEach(grid => {
+        if (!grid) return;
+        
+        const cards = Array.from(grid.querySelectorAll('.project-card'));
+        if (cards.length === 0) return;
+        
+        // Configuration
+        let columnCount = 3;
+        let gap = 24; // 1.5rem = 24px
+        
+        // Determine column count and gap based on viewport and grid type
+        function updateConfig() {
+            const isCategoryGrid = grid.classList.contains('category-grid');
+            
+            if (window.innerWidth <= 768) {
+                columnCount = 1;
+                gap = 16; // 1rem
+            } else if (window.innerWidth <= 992) {
+                columnCount = 2;
+                gap = 16;
+            } else {
+                // Desktop: 3 columns for gallery-grid, 2 columns for category-grid
+                if (isCategoryGrid) {
+                    columnCount = 2;
+                    gap = 16;
+                } else {
+                    columnCount = 3;
+                    gap = 24;
+                }
+            }
+        }
+        
+        // Calculate and apply masonry layout
+        function applyMasonryLayout() {
+            updateConfig();
+            
+            // Get container width
+            const containerWidth = grid.offsetWidth;
+            
+            // Calculate column width
+            const totalGapWidth = gap * (columnCount - 1);
+            const columnWidth = (containerWidth - totalGapWidth) / columnCount;
+            
+            // Initialize column heights array
+            const columnHeights = new Array(columnCount).fill(0);
+            
+            // Position each card
+            cards.forEach((card, index) => {
+                // Set card width
+                card.style.width = `${columnWidth}px`;
+                
+                // Calculate which column this card should go in (left to right order)
+                const columnIndex = index % columnCount;
+                
+                // Calculate position
+                const x = columnIndex * (columnWidth + gap);
+                const y = columnHeights[columnIndex];
+                
+                // Apply position
+                card.style.transform = `translate(${x}px, ${y}px)`;
+                card.style.left = '0';
+                card.style.top = '0';
+                
+                // Update column height
+                // Need to get actual height after positioning
+                const cardHeight = card.offsetHeight;
+                columnHeights[columnIndex] += cardHeight + gap;
+            });
+            
+            // Set container height to the tallest column
+            const maxHeight = Math.max(...columnHeights) - gap;
+            grid.style.height = `${maxHeight}px`;
+        }
+        
+        // Wait for images and videos to load
+        function waitForMediaToLoad() {
+            const mediaElements = grid.querySelectorAll('img, video');
+            const promises = [];
+            
+            mediaElements.forEach(media => {
+                if (media.tagName === 'IMG' && !media.complete) {
+                    promises.push(
+                        new Promise(resolve => {
+                            media.addEventListener('load', resolve);
+                            media.addEventListener('error', resolve);
+                        })
+                    );
+                } else if (media.tagName === 'VIDEO' && media.readyState < 2) {
+                    promises.push(
+                        new Promise(resolve => {
+                            media.addEventListener('loadeddata', resolve);
+                            media.addEventListener('error', resolve);
+                        })
+                    );
+                }
+            });
+            
+            return Promise.all(promises);
+        }
+        
+        // Initial layout
+        waitForMediaToLoad().then(() => {
+            applyMasonryLayout();
+            // Apply again after a short delay to catch any layout shifts
+            setTimeout(applyMasonryLayout, 100);
+        });
+        
+        // Reapply on window resize with debounce
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                applyMasonryLayout();
+            }, 150);
+        });
+        
+        // Watch for any dynamic content changes
+        const observer = new MutationObserver(() => {
+            waitForMediaToLoad().then(applyMasonryLayout);
+        });
+        
+        observer.observe(grid, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['src']
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize smart scroll effect first
     initializeScrollEffect();
+    
+    // Initialize masonry layout for gallery
+    initializeMasonryLayout();
     
     // Check if this is the homepage or not
     const isHomePage = window.location.pathname.endsWith('index.html') || 
@@ -387,6 +524,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('All website functionality initialized:', {
         smartNavbar: true,
         scrollEffect: true,
+        masonryLayout: true,
         floatingMenu: true,
         carousels: document.querySelectorAll('.carousel').length,
         lightbox: !isHomePage,
