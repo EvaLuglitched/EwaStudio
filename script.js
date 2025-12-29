@@ -178,6 +178,11 @@ function initializeMasonryLayout() {
             // Set container height to the tallest column
             const maxHeight = Math.max(...columnHeights) - gap;
             grid.style.height = `${maxHeight}px`;
+            
+            // 显示所有卡片（添加masonry-ready类）
+            cards.forEach(card => {
+                card.classList.add('masonry-ready');
+            });
         }
         
         // Wait for images and videos to load
@@ -186,31 +191,38 @@ function initializeMasonryLayout() {
             const promises = [];
             
             mediaElements.forEach(media => {
-                if (media.tagName === 'IMG' && !media.complete) {
-                    promises.push(
-                        new Promise(resolve => {
-                            media.addEventListener('load', resolve);
-                            media.addEventListener('error', resolve);
-                        })
-                    );
-                } else if (media.tagName === 'VIDEO' && media.readyState < 2) {
-                    promises.push(
-                        new Promise(resolve => {
-                            media.addEventListener('loadeddata', resolve);
-                            media.addEventListener('error', resolve);
-                        })
-                    );
+                if (media.tagName === 'IMG') {
+                    if (!media.complete) {
+                        promises.push(
+                            new Promise(resolve => {
+                                media.addEventListener('load', resolve, { once: true });
+                                media.addEventListener('error', resolve, { once: true });
+                            })
+                        );
+                    }
+                } else if (media.tagName === 'VIDEO') {
+                    if (media.readyState < 2) {
+                        promises.push(
+                            new Promise(resolve => {
+                                media.addEventListener('loadeddata', resolve, { once: true });
+                                media.addEventListener('error', resolve, { once: true });
+                            })
+                        );
+                    }
                 }
             });
             
             return Promise.all(promises);
         }
         
-        // Initial layout
-        waitForMediaToLoad().then(() => {
+        // Initial layout - 优化加载流程
+        Promise.race([
+            waitForMediaToLoad(),
+            new Promise(resolve => setTimeout(resolve, 100)) // 最多等待100ms
+        ]).then(() => {
             applyMasonryLayout();
-            // Apply again after a short delay to catch any layout shifts
-            setTimeout(applyMasonryLayout, 100);
+            // 再次应用以确保准确性
+            setTimeout(applyMasonryLayout, 50);
         });
         
         // Reapply on window resize with debounce
@@ -224,7 +236,10 @@ function initializeMasonryLayout() {
         
         // Watch for any dynamic content changes
         const observer = new MutationObserver(() => {
-            waitForMediaToLoad().then(applyMasonryLayout);
+            Promise.race([
+                waitForMediaToLoad(),
+                new Promise(resolve => setTimeout(resolve, 100))
+            ]).then(applyMasonryLayout);
         });
         
         observer.observe(grid, {
