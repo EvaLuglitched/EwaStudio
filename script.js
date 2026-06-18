@@ -215,15 +215,10 @@ function initializeMasonryLayout() {
             return Promise.all(promises);
         }
         
-        // Initial layout - 优化加载流程
-        Promise.race([
-            waitForMediaToLoad(),
-            new Promise(resolve => setTimeout(resolve, 100)) // 最多等待100ms
-        ]).then(() => {
-            applyMasonryLayout();
-            // 再次应用以确保准确性
-            setTimeout(applyMasonryLayout, 50);
-        });
+        // Initial layout - 修复：先用当前高度布局一次避免初始重叠，
+        // 然后等每个媒体元素真正加载完成后再精确重排（不再用100ms超时抢跑）
+        applyMasonryLayout();
+        waitForMediaToLoad().then(applyMasonryLayout);
         
         // Reapply on window resize with debounce
         let resizeTimeout;
@@ -234,20 +229,9 @@ function initializeMasonryLayout() {
             }, 150);
         });
         
-        // Watch for any dynamic content changes
-        const observer = new MutationObserver(() => {
-            Promise.race([
-                waitForMediaToLoad(),
-                new Promise(resolve => setTimeout(resolve, 100))
-            ]).then(applyMasonryLayout);
-        });
-        
-        observer.observe(grid, {
-            childList: true,
-            subtree: true,
-            attributes: true,
-            attributeFilter: ['src']
-        });
+        // 修复：移除了原本监听 src 属性的 MutationObserver。
+        // 卡片是静态内容，没有动态增删，observer 会在图片加载过程中
+        // 反复触发整页重排，是卡顿和闪烁的主要原因。
     });
 }
 
